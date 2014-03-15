@@ -1,4 +1,4 @@
-Hey Wolrd!
+Hey World!
 ==============
 
 Your personal travel assistant

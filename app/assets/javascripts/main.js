@@ -1,11 +1,22 @@
 ;(function(){
+    // Menu settings
+    $('#menuToggle').on('click', function(){
+        toggleMenu();
+    });
 
-			// Menu settings
-			$('#menuToggle, .menu-close').on('click', function(){
-				$('#menuToggle').toggleClass('active');
-				$('body').toggleClass('body-push-toleft');
-				$('#theMenu').toggleClass('menu-open');
-			});
-
-
+    $(document).click(function(e) {
+            var target = e.target;
+            if (!$(target).is('.menu') && !$(target).parents().is('.menu') 
+                && !$(target).is('#menuToggle') && !$(target).parents().is('#menuToggle')) {
+                if($('#menuToggle').hasClass('active')){
+                    toggleMenu();
+                }
+            }
+    });
 })(jQuery)
+
+function toggleMenu(){
+    $('#menuToggle').toggleClass('active');
+    $('body').toggleClass('body-push-toright');
+    $('#theMenu').toggleClass('menu-open');
+}

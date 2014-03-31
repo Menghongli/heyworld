@@ -1,0 +1,176 @@
+/*
+ * Author: Menghong Li
+ * URL: http://menghongli.me
+ *
+ * Project Name: Hey world
+ * Version: 1.0
+ * URL: http://heyworld.io
+ */
+
+@mixin background-size($size) {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@mixin transition($period, $method) { 
+    -webkit-transition: all $period $method;
+       -moz-transition: all $period $method;
+        -ms-transition: all $period $method;
+         -o-transition: all $period $method;
+            transition: all $period $method;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+html, body {
+    height:100%;
+    overflow-x:hidden;
+}
+
+#headerwrap {
+	background: url(header-bg.JPG);
+	padding-top:20px;
+	text-align:center;
+	background-attachment: relative;
+	background-position: center;
+    background-repeat: none;
+	min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    left: 0;
+    position: relative;
+    @include background-size(cover);
+    h1 {
+        color: white;
+        font-size: 100px;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+    h2 {
+        color: white;
+        font-size: 30px;
+        font-weight: 50;
+        letter-spacing: 1px;
+    }
+    .align-block {
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        margin: auto;
+        width:80%;
+        height:250px;
+    }
+    .body-push-toright & {
+        left: 200px;
+    }
+}
+
+/* MENU CONF*/
+
+.menu {
+	position: fixed;
+	left: -200px;
+	width: 200px;
+	height: 100%;
+	top: 0;
+	z-index: 10;
+	text-align: left;
+    a {
+        margin-left: 20px;
+        color: #808080;
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        &:hover, &:active {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        & > i {
+            width: 25px;
+            font-size: 14px;
+            line-height: 40px;
+        }
+    }
+    &.menu-open {
+        left: 0px;
+    }
+}
+
+.menu-wrap {
+	position: absolute;
+	top: 0;
+	left: 0px;
+	background: #1a1a1a;
+	width: 200px;
+	height: 100%;
+}
+
+
+
+
+.menu, #headerwrap {
+    @include transition(.3s, ease);
+}
+
+#menuToggle {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	z-index: 11;
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	color: #ffffff;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	cursor: pointer;
+	background: rgba(0,0,0,0.5);
+    opacity: 1;
+    @include transition(.3s, ease-in-out);
+    &.active {
+        display: none;
+    }
+    &:hover {
+        color: #ffffff;
+        background: rgba(0,0,0,0.45);
+    }
+}
+
+.site-nav-list {
+    margin: 0;
+    padding:0;
+    li {
+        margin:0;
+        padding: 0;
+        list-style-type: none;
+        position: relative;
+    }
+    .list-home {
+        margin-top:10px;
+    }
+    .site-nav-list-item-secondary {
+        position: absolute;
+        right:0;
+        top:0;
+        margin: 0;
+        & .hidden-text {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+    }
+}

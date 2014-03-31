@@ -9,51 +9,10 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <%= render 'layouts/shim' %>
 </head>
 <body>
-    <!-- Menu button -->
-    <div id="menuToggle"><%= fa_icon "bars" %></div>
-    
-	<!-- Menu -->
-	<nav class="menu" id="theMenu">
-
-		<div class="menu-wrap">
-            <ul class="site-nav-list">
-                <li class="list-home">
-                    <a class="" title="Go home" href="/" tabindex="-1">
-                        <%= fa_icon "home" %>Home
-                    </a>
-                    <a class="site-nav-list-item-secondary" title="Search Medium" href="/search" tabindex="-1">
-                        <%= fa_icon "search" %><span class="hidden-text">Search</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a class="" title="Blogs" href="/blogs" tabindex="-1">
-                        <%= fa_icon "list" %></span>Blogs
-                    </a>
-                </li>
-                <li class="">
-                    <a class="" title="Destination" href="/destination" tabindex="-1">
-                        <%= fa_icon "plane" %>Destinations
-                    </a>
-                </li>
-                <li class="">
-                    <a class="" title="Destination" href="/Q&A" tabindex="-1">
-                        <%= fa_icon "question" %>Questions
-                    </a>
-                </li>
-                <li class="">
-                    <a class="" title="Destination" href="/Q&A" tabindex="-1">
-                        <%= fa_icon "compass" %>Travel Assistant
-                    </a>
-                </li>
-            </ul>
-		</div>
-	</nav>
-	
+    <%= render 'layouts/menu' %>	
     <%= yield %>
 
     <!-- Bootstrap core JavaScript

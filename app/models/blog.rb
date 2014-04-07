@@ -1,3 +1,4 @@
 class Blog < ActiveRecord::Base
-  acts_as_article
+  acts_as :post
 end
+

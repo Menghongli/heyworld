@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404071931) do
+ActiveRecord::Schema.define(version: 20140407123059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,10 +57,8 @@ ActiveRecord::Schema.define(version: 20140404071931) do
   end
 
   create_table "comments", force: true do |t|
-    t.integer  "parent_post_id"
-    t.integer  "comment_location_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "parent_post_id"
+    t.integer "comment_location_id"
   end
 
   create_table "destinations", force: true do |t|
@@ -82,13 +80,9 @@ ActiveRecord::Schema.define(version: 20140404071931) do
   create_table "guides", force: true do |t|
   end
 
-  create_table "post_types", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", force: true do |t|
+    t.integer  "as_post_id"
+    t.string   "as_post_type"
     t.string   "title"
     t.text     "content"
     t.decimal  "score",        precision: 5, scale: 1
@@ -97,10 +91,8 @@ ActiveRecord::Schema.define(version: 20140404071931) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "post_type_id"
   end
 
-  add_index "posts", ["post_type_id"], name: "index_posts_on_post_type_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "posts_tags", id: false, force: true do |t|
@@ -109,9 +101,7 @@ ActiveRecord::Schema.define(version: 20140404071931) do
   end
 
   create_table "questions", force: true do |t|
-    t.integer  "accepted_answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "accepted_answer_id"
   end
 
   create_table "tags", force: true do |t|
@@ -142,6 +132,12 @@ ActiveRecord::Schema.define(version: 20140404071931) do
   create_table "votes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "vote_type_id"
+    t.integer  "parent_post_id"
   end
+
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+  add_index "votes", ["vote_type_id"], name: "index_votes_on_vote_type_id", using: :btree
 
 end

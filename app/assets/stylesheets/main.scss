@@ -7,72 +7,65 @@
  * URL: http://heyworld.io
  */
 
-@mixin background-size($size) {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-@mixin transition($period, $method) { 
-    -webkit-transition: all $period $method;
-       -moz-transition: all $period $method;
-        -ms-transition: all $period $method;
-         -o-transition: all $period $method;
-            transition: all $period $method;
-}
-
-@mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
-}
+@import 'mixin';
 
 html, body {
     height:100%;
     overflow-x:hidden;
+    font-size: 30px;
+}
+.heyworld {
+  position: relative;
+  margin-bottom: 20px;
+  &.container {
+    min-width: 100%;
+    display:table;
+    width: 100%;
+    & > .row {
+      display: block;
+      margin:0;
+    }
+  }
 }
 
 #headerwrap {
-	background: url(header-bg.JPG);
-	padding-top:20px;
-	text-align:center;
+	background-image: url(header-bg.JPG);
 	background-attachment: relative;
 	background-position: center;
-    background-repeat: none;
+	padding-top:20px;
+	padding-bottom:20px;
+	text-align:center;
+  background-repeat: none;
 	min-height: 100%;
-    min-width: 100%;
-    width: 100%;
-    left: 0;
-    position: relative;
-    @include background-size(cover);
-    h1 {
-        color: white;
-        font-size: 100px;
-        font-weight: 700;
-        letter-spacing: 3px;
+  left: 0;
+  @include background-size(cover);
+  h1 {
+      color: white;
+      font-size: 3em;
+      font-weight: 700;
+      letter-spacing: 3px;
+  }
+  h2 {
+      color: white;
+      font-size: 1em;
+      font-weight: 50;
+      letter-spacing: 1px;
+  }
+  .align-block {
+      background: rgba(0,0,0,0.5);
+      margin: auto;
+      padding:20px;
+  }
+  .body-push-toright & {
+      left: 200px;
+  }
+  &.container {
+    display:table;
+    .row {
+      display: table-cell;
+      vertical-align:middle;
     }
-    h2 {
-        color: white;
-        font-size: 30px;
-        font-weight: 50;
-        letter-spacing: 1px;
-    }
-    .align-block {
-        background: rgba(0,0,0,0.5);
-        position: absolute;
-        top:0;
-        left:0;
-        bottom:0;
-        right:0;
-        margin: auto;
-        width:80%;
-        height:250px;
-    }
-    .body-push-toright & {
-        left: 200px;
-    }
+  }
 }
 
 /* MENU CONF*/
@@ -89,7 +82,7 @@ html, body {
         margin-left: 20px;
         color: #808080;
         display: block;
-        font-size: 12px;
+        font-size: 0.4em;
         font-weight: 700;
         line-height: 40px;
         letter-spacing: 0.1em;
@@ -100,7 +93,7 @@ html, body {
         }
         & > i {
             width: 25px;
-            font-size: 14px;
+            font-size: 1em;
             line-height: 40px;
         }
     }
@@ -121,7 +114,7 @@ html, body {
 
 
 
-.menu, #headerwrap {
+.menu, .heyworld {
     @include transition(.3s, ease);
 }
 
@@ -132,13 +125,13 @@ html, body {
 	z-index: 11;
 	display: block;
 	text-align: center;
-	font-size: 14px;
+	font-size: 0.5em;
 	color: #ffffff;
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
 	cursor: pointer;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.8);
     opacity: 1;
     @include transition(.3s, ease-in-out);
     &.active {

@@ -1,0 +1,42 @@
+// Place all the styles related to the destination controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'mixin';
+
+#headerwrap {
+  background-image: url(destination-top.jpg);
+  min-height: 300px;
+  padding-bottom:20px;
+  h1 {
+    font-size:2em;
+    text-shadow: 0 0 5px #000;
+  }
+  .align-block {
+      background: rgba(0,0,0,0.8);
+      position: relative;
+      .input-group {
+        .form-control {
+          font-size: 0.8em;
+          height: auto;
+        }
+        .input-group-addon {
+          background: #FFF;
+          font-size: 0.8em;
+        }
+      }
+  }
+}
+#dest {
+  border:none;
+  padding:10px 44px 10px 20px;
+  background:#FFF;
+}
+.dest-inner {
+  background-color: #333;
+  background-position: center;
+  height:260px;
+  @include background-size(cover);
+  @include border-radius(4px);
+
+}
+

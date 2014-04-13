@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag    "destination", media: "all", "data-turbolinks-track" => true %>
+<div id="headerwrap" class="heyworld container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <h1>The Stars My Destination!</h1>
+      <div class="align-block">
+        <form id="searchdest" name="searchdest" action method="get">
+          <div class="input-group">
+            <input text="search" id="dest" class="form-control" placeholder="Search for cities, countries" />
+            <span class="input-group-addon"><%= fa_icon "search" %></span>
+          </form>
+        </div><!-- /container -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="heyworld container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3">
+      <div class="row">
+        <% @dests.each do |dest| %>
+          <div class="col-lg-3">
+            <div class="dest-inner" style="background-image:url(<%= asset_path(dest.thumbnail) %>);">
+              <%= dest.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

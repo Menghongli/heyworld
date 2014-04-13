@@ -1,0 +1,25 @@
+@mixin background-size($size) {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@mixin transition($period, $method) { 
+    -webkit-transition: all $period $method;
+       -moz-transition: all $period $method;
+        -ms-transition: all $period $method;
+         -o-transition: all $period $method;
+            transition: all $period $method;
+}
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+  
+
+

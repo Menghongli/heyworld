@@ -21,7 +21,12 @@
         <% @dests.each do |dest| %>
           <div class="col-lg-3">
             <div class="dest-inner" style="background-image:url(<%= asset_path(dest.thumbnail) %>);">
-              <%= dest.name %>
+              <div class="dest-title">
+                <%= dest.name %>
+              </div>
+              <button class="btn btn-default btn-sm btn-rating">
+                <span class="rating-starts">Fellow</span>
+                <span class="rating-score">4.7</span>
             </div>
           </div>
         <% end %>

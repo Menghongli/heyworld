@@ -34,9 +34,25 @@
 .dest-inner {
   background-color: #333;
   background-position: center;
+  position: relative;
   height:260px;
+  padding:30px 20px;
+  text-align:center;
   @include background-size(cover);
   @include border-radius(4px);
-
+  .dest-title {
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+    color:#FFF;
+    font-size:0.8em;
+  }
+  .btn-rating {
+    background:rgba(0,0,0,0);
+    font-size: 0.5em;
+    padding: 0 14px;
+    height:32px;
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.5);
+    @include border-radius(999em);
+  }
 }
 
